@@ -45,21 +45,25 @@ func part2() string {
 	sort.Ints(leftList)
 	sort.Ints(rightList)
 
-	rightPointer := 0
+	rightIndex := 0
 	sum := 0
 	for _, leftValue := range leftList {
 		count := 0
 		for {
-			if leftValue < rightList[rightPointer] || rightPointer == len(rightList)-1 {
+			if leftValue < rightList[rightIndex] || rightIndex >= len(rightList)-1 {
 				break
-			} else if leftValue == rightList[rightPointer] {
+			} else if leftValue == rightList[rightIndex] {
 				count += 1
-				rightPointer += 1
-			} else if leftValue > rightList[rightPointer] {
-				rightPointer += 1
+				rightIndex += 1
+			} else if leftValue > rightList[rightIndex] {
+				rightIndex += 1
 			}
 		}
 		sum += count * leftValue
+
+		if rightIndex >= len(rightList)-1 {
+			break
+		}
 	}
 	return strconv.Itoa(sum)
 }
