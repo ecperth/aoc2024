@@ -32,13 +32,14 @@ func part2() string {
 	sum := 0
 	r, _ := regexp.Compile("mul\\(\\d{1,3},\\d{1,3}\\)|do\\(\\)|don't\\(\\)")
 	do := true
+	doToken, dontToken := []byte("do()"), []byte("don't()")
 	for _, line := range input {
 		tokens := r.FindAll(line, -1)
 		var m1, m2 int
 		for _, token := range tokens {
-			if bytes.Equal(token, []byte("do()")) {
+			if bytes.Equal(token, doToken) {
 				do = true
-			} else if bytes.Equal(token, []byte("don't()")) {
+			} else if bytes.Equal(token, dontToken) {
 				do = false
 			} else if do {
 				utils.SscanfUnsafe(string(token), "mul(%d,%d)", &m1, &m2)
