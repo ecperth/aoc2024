@@ -14,6 +14,6 @@ To run a day:
 ---
 To generate day template in goland:
 ---
-While days dir is highlighted: File->New->aoc_2024_day Then enter day number
+While top level dir is highlighted: File->New->aoc_2024_day Then enter day number
 
 ---

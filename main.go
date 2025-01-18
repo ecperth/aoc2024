@@ -4,6 +4,7 @@ import (
 	"aoc2024/days"
 	"aoc2024/days/day1"
 	"aoc2024/days/day2"
+	"aoc2024/days/day3"
 	"fmt"
 	"os"
 	"strconv"
@@ -13,6 +14,7 @@ import (
 var solutions = [25]days.Day{
 	day1.Solution,
 	day2.Solution,
+	day3.Solution,
 }
 
 func main() {
